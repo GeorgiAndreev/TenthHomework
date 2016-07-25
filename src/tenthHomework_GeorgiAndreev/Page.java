@@ -38,7 +38,7 @@ public class Page {
 	}
 	
 	void viewPage() {
-		System.out.println("Title: " + this.title);
+		System.out.println("\nTitle: " + this.title);
 		System.out.println("Text: " + this.text);
 	}
 	

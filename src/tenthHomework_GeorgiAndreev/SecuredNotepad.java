@@ -116,7 +116,7 @@ public abstract class SecuredNotepad implements INotepad{
 	@Override
 	public void viewAllPages() {
 		if (this.verifyPassword()) {
-			System.out.println("Showing notebook pages:\n");
+			System.out.println("Showing notebook pages:");
 			for (int index = 0; index < pages.length; index++) {
 				this.pages[index - 1].viewPage();
 			}
@@ -139,7 +139,7 @@ public abstract class SecuredNotepad implements INotepad{
 	public void printAllPagesWithDigits() {
 		if (this.verifyPassword()) {
 			boolean hasPagesWithDigits = false;
-			System.out.println("\nPrinting all pages that contain digits:\n");
+			System.out.println("\nPrinting all pages that contain digits:");
 			for (int index = 1; index <= pages.length; index++) {
 				if (this.pages[index - 1].containsDigits()) {
 					hasPagesWithDigits = true;
