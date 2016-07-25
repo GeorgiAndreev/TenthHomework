@@ -8,9 +8,26 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 		super(password);
 	}
 	
+	private ElectronicSecuredNotepad(String password, int numberOfPages) {
+		super(password, numberOfPages);
+	}
+	
 	public static ElectronicSecuredNotepad createElectronicSecuredNotepad(String password) {
 		if (SecuredNotepad.checkIfPasswordIsStrong(password)) {
 			return new ElectronicSecuredNotepad(password);
+		}
+		System.out.println("Cannot create new electronic sequred notepad.");
+		return null;
+	}
+	
+	public static ElectronicSecuredNotepad createElectronicSecuredNotepad(String password, int numberOfPages) {
+		if (SecuredNotepad.checkIfPasswordIsStrong(password)) {
+			if (numberOfPages > 0) {
+				return new ElectronicSecuredNotepad(password, numberOfPages);
+			} else {
+				System.out.println("Invalid number of pages.");
+				return null;
+			}	
 		}
 		System.out.println("Cannot create new electronic sequred notepad.");
 		return null;

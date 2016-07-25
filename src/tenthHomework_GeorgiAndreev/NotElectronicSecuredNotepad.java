@@ -6,9 +6,26 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 		super(password);
 	}
 	
+	private NotElectronicSecuredNotepad(String password, int numberOfPages) {
+		super(password, numberOfPages);
+	}
+	
 	public static NotElectronicSecuredNotepad createNotElectronicSecuredNotepad(String password) {
 		if (SecuredNotepad.checkIfPasswordIsStrong(password)) {
 			return new NotElectronicSecuredNotepad(password);
+		}
+		System.out.println("Cannot create new not electronic sequred notepad.");
+		return null;
+	}
+	
+	public static NotElectronicSecuredNotepad createNotElectronicSecuredNotepad(String password, int numberOfPages) {
+		if (SecuredNotepad.checkIfPasswordIsStrong(password)) {
+			if (numberOfPages > 0) {
+				return new NotElectronicSecuredNotepad(password, numberOfPages);
+			} else {
+				System.out.println("Invalid number of pages.");
+				return null;
+			}	
 		}
 		System.out.println("Cannot create new not electronic sequred notepad.");
 		return null;

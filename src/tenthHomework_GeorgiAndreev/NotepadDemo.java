@@ -37,7 +37,9 @@ public class NotepadDemo {
 		NotElectronicSecuredNotepad nesn2 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("erwa1");
 		NotElectronicSecuredNotepad nesn3 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Erwaw");
 		NotElectronicSecuredNotepad nesn4 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Erwa1");
-		nesn4.addTextToPage(1, "w");
+		NotElectronicSecuredNotepad nesn5 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Erwa1", 4);
+		nesn5.addTextToPage(1, "tekst");
+		
 		
 	}
 
