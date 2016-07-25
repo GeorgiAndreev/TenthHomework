@@ -18,7 +18,7 @@ public class NotepadDemo {
 		Page page2 = new Page(2);
 		page2.viewPage();
 
-		SimpleNotepad simpleNotepad1 = new SimpleNotepad();
+		SimpleNotepad simpleNotepad1 = new SimpleNotepad(4);
 		simpleNotepad1.addTextToPage(1, "Az sum na 1-vata stranica");
 		simpleNotepad1.addTextToPage(2, "Az sum na 2-rata stranica");
 		simpleNotepad1.addTextToPage(3, "Az sum na 3-tata stranica");

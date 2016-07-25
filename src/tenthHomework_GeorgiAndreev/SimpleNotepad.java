@@ -2,14 +2,32 @@ package tenthHomework_GeorgiAndreev;
 
 public class SimpleNotepad implements INotepad {
 
+	private static final int DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD = 100;
 	private Page[] pages;
 
 	public SimpleNotepad() {
-		this.pages = new Page[4];
-		for (int index = 0; index < pages.length; index++) {
+		this.pages = new Page[DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD];
+		for (int index = 0; index < this.pages.length; index++) {
 			Page page = new Page(index + 1);
 			this.pages[index] = page;
 		}
+	}
+	
+	public SimpleNotepad(int numberOfPages) {
+		if (numberOfPages < 1) {
+			System.out.println("Invalid number of pages. New notepad will be with default number of pages which is: " + DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD);
+			this.pages = new Page[DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD];
+			for (int index = 0; index < this.pages.length; index++) {
+				Page page = new Page(index + 1);
+				this.pages[index] = page;
+			}
+		} else {
+			this.pages = new Page[numberOfPages];
+			for (int index = 0; index < this.pages.length; index++) {
+				Page page = new Page(index + 1);
+				this.pages[index] = page;
+			}
+		}	
 	}
 
 	@Override
