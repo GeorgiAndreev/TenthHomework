@@ -48,12 +48,12 @@ public abstract class SecuredNotepad implements INotepad {
 
 	}
 
-	protected boolean checkIfPasswordIsStrong(String passwordToCheck) {
+	protected static boolean checkIfPasswordIsStrong(String passwordToCheck) {
 		boolean hasSmallLetter = false;
 		boolean hasBigLetter = false;
 		boolean hasNumber = false;
 		if (passwordToCheck.length() < 5) {
-			System.out.println("Passwort too short. Password must be at least 5 characters long.");
+			System.out.println("\nPasswort too short. Password must be at least 5 characters long.");
 			return false;
 		}
 		for (int index = 0; index < passwordToCheck.length(); index++) {
@@ -69,13 +69,13 @@ public abstract class SecuredNotepad implements INotepad {
 		}
 		if ((!hasNumber) || (!hasSmallLetter) || (!hasBigLetter)) {
 			System.out.println(
-					"Weak password. Password must contain at least one number, one small letter and one big letter.");
+					"\nWeak password. Password must contain at least one number, one small letter and one big letter.");
 			return false;
 		}
 		return true;
 	}
 
-	public abstract SecuredNotepad createSecuredNotepad(String password);
+	//public abstract SecuredNotepad createSecuredNotepad(String password);
 
 	boolean verifyPassword() {
 		byte tries = 0;

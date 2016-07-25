@@ -6,10 +6,11 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 		super(password);
 	}
 	
-	public NotElectronicSecuredNotepad createSecuredNotepad(String password) {
-		if (super.checkIfPasswordIsStrong(password)) {
+	public static NotElectronicSecuredNotepad createNotElectronicSecuredNotepad(String password) {
+		if (SecuredNotepad.checkIfPasswordIsStrong(password)) {
 			return new NotElectronicSecuredNotepad(password);
 		}
+		System.out.println("Cannot create new not electronic sequred notepad.");
 		return null;
 	}
 

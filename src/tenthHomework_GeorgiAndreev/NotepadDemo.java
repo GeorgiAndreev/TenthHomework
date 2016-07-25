@@ -32,7 +32,12 @@ public class NotepadDemo {
 		simpleNotepad1.viewAllPages();
 		System.out.println("\ncontains 'stranica': " + simpleNotepad1.searchWord("stranica"));
 		System.out.println("\ncontains 'kifla': " + simpleNotepad1.searchWord("kifla"));
-
+		
+		NotElectronicSecuredNotepad nesn1 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("e");
+		NotElectronicSecuredNotepad nesn2 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("erwa1");
+		NotElectronicSecuredNotepad nesn3 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Erwaw");
+		NotElectronicSecuredNotepad nesn4 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Erwa1");
+	
 	}
 
 }

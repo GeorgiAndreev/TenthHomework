@@ -8,10 +8,11 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 		super(password);
 	}
 	
-	public ElectronicSecuredNotepad createSecuredNotepad(String password) {
-		if (super.checkIfPasswordIsStrong(password)) {
+	public static ElectronicSecuredNotepad createElectronicSecuredNotepad(String password) {
+		if (SecuredNotepad.checkIfPasswordIsStrong(password)) {
 			return new ElectronicSecuredNotepad(password);
 		}
+		System.out.println("Cannot create new electronic sequred notepad.");
 		return null;
 	}
 
