@@ -15,6 +15,10 @@ public class NotepadDemo {
 		simpleNotepad1.addTextToPage(3, "Az sum na 3-tata stranica");
 		simpleNotepad1.addTextToPage(4, "Az sum na 4-tata stranica");
 		simpleNotepad1.viewAllPages();
+		simpleNotepad1.deleteTextOnPage(2);
+		simpleNotepad1.viewAllPages();
+		simpleNotepad1.addTextToPage(2, "Az sum tekst bez nomer");
+		simpleNotepad1.printAllPagesWithDigits();
 
 	}
 

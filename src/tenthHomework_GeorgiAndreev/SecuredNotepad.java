@@ -139,8 +139,8 @@ public abstract class SecuredNotepad implements INotepad{
 	public void printAllPagesWithDigits() {
 		if (this.verifyPassword()) {
 			boolean hasPagesWithDigits = false;
-			System.out.println("Printing all pages that contain digits:");
-			for (int index = 0; index < pages.length; index++) {
+			System.out.println("\nPrinting all pages that contain digits:\n");
+			for (int index = 1; index <= pages.length; index++) {
 				if (this.pages[index - 1].containsDigits()) {
 					hasPagesWithDigits = true;
 					this.pages[index - 1].viewPage();
