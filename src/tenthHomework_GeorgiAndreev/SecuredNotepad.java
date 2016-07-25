@@ -5,7 +5,6 @@ import java.util.Scanner;
 public abstract class SecuredNotepad implements INotepad {
 
 	private static final int MAX_TRIES_TO_GUESS_PASSWORD = 3;
-	private static final int DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD = 100;
 	protected String password;
 	protected Page[] pages;
 

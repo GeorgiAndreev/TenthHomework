@@ -2,7 +2,6 @@ package tenthHomework_GeorgiAndreev;
 
 public class SimpleNotepad implements INotepad {
 
-	private static final int DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD = 100;
 	private Page[] pages;
 
 	public SimpleNotepad() {
