@@ -2,13 +2,15 @@ package tenthHomework_GeorgiAndreev;
 
 import java.util.Scanner;
 
-public abstract class SecuredNotepad implements INotepad{
-	
+public abstract class SecuredNotepad implements INotepad {
+
 	private static final int MAX_TRIES_TO_GUESS_PASSWORD = 3;
+	private static final int DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD = 100;
 	protected String password;
 	protected Page[] pages;
 
-	 SecuredNotepad(String password) {
+	SecuredNotepad(String password) {
+		this.pages = new Page[DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD];
 		for (int index = 0; index < pages.length; index++) {
 			pages[index] = new Page(index + 1);
 		}
@@ -18,7 +20,34 @@ public abstract class SecuredNotepad implements INotepad{
 			System.out.println("Invalid password.");
 		}
 	}
-	
+
+	SecuredNotepad(String password, int numberOfPages) {
+		if (numberOfPages < 0) {
+			System.out.println("Invalid number of pages. New notepad will be with default number of pages which is: "
+					+ DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD);
+			this.pages = new Page[DEFAULT_NUMBER_OF_PAGES_IN_NOTEPAD];
+			for (int index = 0; index < pages.length; index++) {
+				pages[index] = new Page(index + 1);
+			}
+			if ((password != null) && (!password.equals(""))) {
+				this.password = password;
+			} else {
+				System.out.println("Invalid password.");
+			}
+		} else {
+			this.pages = new Page[numberOfPages];
+			for (int index = 0; index < pages.length; index++) {
+				pages[index] = new Page(index + 1);
+			}
+			if ((password != null) && (!password.equals(""))) {
+				this.password = password;
+			} else {
+				System.out.println("Invalid password.");
+			}
+		}
+
+	}
+
 	protected boolean checkIfPasswordIsStrong(String passwordToCheck) {
 		boolean hasSmallLetter = false;
 		boolean hasBigLetter = false;
@@ -39,24 +68,27 @@ public abstract class SecuredNotepad implements INotepad{
 			}
 		}
 		if ((!hasNumber) || (!hasSmallLetter) || (!hasBigLetter)) {
-			System.out.println("Weak password. Password must contain at least one number, one small letter and one big letter.");
+			System.out.println(
+					"Weak password. Password must contain at least one number, one small letter and one big letter.");
 			return false;
 		}
 		return true;
 	}
-	
+
 	public abstract SecuredNotepad createSecuredNotepad(String password);
-	
+
 	boolean verifyPassword() {
 		byte tries = 0;
 		boolean guessedPassword = false;
 		Scanner sc = new Scanner(System.in);
 		while (tries <= MAX_TRIES_TO_GUESS_PASSWORD) {
-			System.out.printf("\nOperation requires password. Insert password(you have %d tries):", MAX_TRIES_TO_GUESS_PASSWORD);
+			System.out.printf("\nOperation requires password. Insert password(you have %d tries):",
+					MAX_TRIES_TO_GUESS_PASSWORD);
 			String password = sc.nextLine().trim();
 			if (!this.password.equals(password)) {
 				tries++;
-				System.out.printf("\nInvalid password. You have %d more tries left.", MAX_TRIES_TO_GUESS_PASSWORD - tries);
+				System.out.printf("\nInvalid password. You have %d more tries left.",
+						MAX_TRIES_TO_GUESS_PASSWORD - tries);
 			} else {
 				guessedPassword = true;
 			}
@@ -83,7 +115,7 @@ public abstract class SecuredNotepad implements INotepad{
 				return;
 			}
 			this.pages[pageNumber - 1].addText(textToAdd);
-		}	
+		}
 	}
 
 	@Override

@@ -6,14 +6,6 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 	
 	private ElectronicSecuredNotepad(String password) {
 		super(password);
-		for (int index = 0; index < pages.length; index++) {
-			pages[index] = new Page(index + 1);
-		}
-		if ((password != null) && (!password.equals(""))) {
-			this.password = password;
-		} else {
-			System.out.println("Invalid password.");
-		}
 	}
 	
 	public ElectronicSecuredNotepad createSecuredNotepad(String password) {

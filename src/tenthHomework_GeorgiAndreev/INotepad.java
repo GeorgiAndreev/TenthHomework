@@ -8,4 +8,5 @@ public interface INotepad {
 	void viewAllPages();
 	boolean searchWord(String word);
 	void printAllPagesWithDigits();
+	
 }

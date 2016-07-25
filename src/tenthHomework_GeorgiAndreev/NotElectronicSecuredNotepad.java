@@ -4,14 +4,6 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 
 	private NotElectronicSecuredNotepad(String password) {
 		super(password);
-		for (int index = 0; index < pages.length; index++) {
-			pages[index] = new Page(index + 1);
-		}
-		if ((password != null) && (!password.equals(""))) {
-			this.password = password;
-		} else {
-			System.out.println("Invalid password.");
-		}
 	}
 	
 	public NotElectronicSecuredNotepad createSecuredNotepad(String password) {
