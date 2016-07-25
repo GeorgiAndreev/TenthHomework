@@ -35,6 +35,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 
 	@Override
 	public void start() {
+		System.out.println("\nYou attempt switching on notepad.");
 		if (this.verifyPassword()) {
 			this.isStarted = true;
 		}
@@ -42,6 +43,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 
 	@Override
 	public void stop() {
+		System.out.println("\nYou attempt switching off notepad.");
 		if (this.verifyPassword()) {
 			this.isStarted = false;
 		}
@@ -54,7 +56,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 
 	public boolean checkIfStartedWhenAttemptingOperations() {
 		if (!isStarted) {
-			System.out.println("Notepad must be started in order to make any operations.");
+			System.out.println("\nNotepad must be started in order to make any operations.");
 			return false;
 		}
 		return true;
@@ -63,6 +65,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 	@Override
 	public void addTextToPage(int pageNumber, String textToAdd) {
 		if (this.checkIfStartedWhenAttemptingOperations()) {
+			System.out.println("\nYou attempt adding text.");
 			if (this.verifyPassword()) {
 				if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 					System.out.println("Invalid page number.");
@@ -80,6 +83,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 	@Override
 	public void replaceAllTextOnPage(int pageNumber, String textToAdd) {
 		if (this.checkIfStartedWhenAttemptingOperations()) {
+			System.out.println("\nYou attempt replacing text.");
 			if (this.verifyPassword()) {
 				if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 					System.out.println("Invalid page number.");
@@ -98,6 +102,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 	@Override
 	public void deleteTextOnPage(int pageNumber) {
 		if (this.checkIfStartedWhenAttemptingOperations()) {
+			System.out.println("\nYou attempt deleting text.");
 			if (this.verifyPassword()) {
 				if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 					System.out.println("Invalid page number.");
@@ -111,8 +116,9 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 	@Override
 	public void viewAllPages() {
 		if (this.checkIfStartedWhenAttemptingOperations()) {
+			System.out.println("\nYou attempt viewing notepad pages.");
 			if (this.verifyPassword()) {
-				System.out.println("Showing notebook pages:\n");
+				System.out.println("\nShowing notebook pages:");
 				for (int index = 1; index <= pages.length; index++) {
 					this.pages[index - 1].viewPage();
 				}
@@ -123,6 +129,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 	@Override
 	public boolean searchWord(String word) {
 		if (this.checkIfStartedWhenAttemptingOperations()) {
+			System.out.println("\nYou attempt searching word.");
 			if (this.verifyPassword()) {
 				for (int index = 1; index <= pages.length; index++) {
 					if (this.pages[index - 1].searchWord(word)) {
@@ -137,6 +144,7 @@ public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad
 	@Override
 	public void printAllPagesWithDigits() {
 		if (this.checkIfStartedWhenAttemptingOperations()) {
+			System.out.println("\nYou attempt printing pages that contain digits.");
 			if (this.verifyPassword()) {
 				boolean hasPagesWithDigits = false;
 				System.out.println("Printing all pages that contain digits:");

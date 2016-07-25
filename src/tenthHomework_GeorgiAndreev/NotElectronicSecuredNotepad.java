@@ -33,6 +33,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 
 	@Override
 	public void addTextToPage(int pageNumber, String textToAdd) {
+		System.out.println("\nYou attempt adding text.");
 		if (this.verifyPassword()) {
 			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
@@ -48,6 +49,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 
 	@Override
 	public void replaceAllTextOnPage(int pageNumber, String textToAdd) {
+		System.out.println("\nYou attempt replacing text.");
 		if (this.verifyPassword()) {
 			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
@@ -64,6 +66,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 
 	@Override
 	public void deleteTextOnPage(int pageNumber) {
+		System.out.println("\nYou attempt deleting text.");
 		if (this.verifyPassword()) {
 			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
@@ -75,6 +78,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 
 	@Override
 	public void viewAllPages() {
+		System.out.println("\nYou attempt viewing notepad pages.");
 		if (this.verifyPassword()) {
 			System.out.println("\nShowing notebook pages:");
 			for (int index = 1; index <= pages.length; index++) {
@@ -85,6 +89,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 
 	@Override
 	public boolean searchWord(String word) {
+		System.out.println("\nYou attempt searching word.");
 		if (this.verifyPassword()) {
 			for (int index = 1; index <= pages.length; index++) {
 				if (this.pages[index - 1].searchWord(word)) {
@@ -97,6 +102,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 
 	@Override
 	public void printAllPagesWithDigits() {
+		System.out.println("\nYou attempt printing pages that contain digits.");
 		if (this.verifyPassword()) {
 			boolean hasPagesWithDigits = false;
 			System.out.println("\nPrinting all pages that contain digits:");
