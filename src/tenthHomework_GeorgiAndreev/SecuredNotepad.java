@@ -75,13 +75,11 @@ public abstract class SecuredNotepad implements INotepad {
 		return true;
 	}
 
-	//public abstract SecuredNotepad createSecuredNotepad(String password);
-
 	boolean verifyPassword() {
 		byte tries = 0;
 		boolean guessedPassword = false;
 		Scanner sc = new Scanner(System.in);
-		while (tries <= MAX_TRIES_TO_GUESS_PASSWORD) {
+		while ((tries < MAX_TRIES_TO_GUESS_PASSWORD) && (guessedPassword == false)) {
 			System.out.printf("\nOperation requires password. Insert password(you have %d tries):",
 					MAX_TRIES_TO_GUESS_PASSWORD);
 			String password = sc.nextLine().trim();
@@ -90,12 +88,13 @@ public abstract class SecuredNotepad implements INotepad {
 				System.out.printf("\nInvalid password. You have %d more tries left.",
 						MAX_TRIES_TO_GUESS_PASSWORD - tries);
 			} else {
+				System.out.println("Password accepted.");
 				guessedPassword = true;
 			}
 		}
 		sc.close();
 		if (!guessedPassword) {
-			System.out.println("You didn't insert correct passwort and cannot perform action.");
+			System.out.println(" You didn't insert correct passwort and cannot perform action.");
 			return false;
 		} else {
 			return true;
