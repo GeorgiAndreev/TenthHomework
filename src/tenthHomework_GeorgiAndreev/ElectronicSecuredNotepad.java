@@ -2,6 +2,8 @@ package tenthHomework_GeorgiAndreev;
 
 public class ElectronicSecuredNotepad extends SecuredNotepad implements INotepad, IElectronicDevice {
 
+	private String password;
+	private Page[] pages;
 	private boolean isStarted;
 	
 	private ElectronicSecuredNotepad(String password) {

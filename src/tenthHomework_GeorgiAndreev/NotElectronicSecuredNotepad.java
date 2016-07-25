@@ -1,6 +1,9 @@
 package tenthHomework_GeorgiAndreev;
 
 public class NotElectronicSecuredNotepad extends SecuredNotepad implements INotepad{
+	
+	private String password;
+	private Page[] pages;
 
 	private NotElectronicSecuredNotepad(String password) {
 		super(password);
