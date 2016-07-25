@@ -34,7 +34,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 	@Override
 	public void addTextToPage(int pageNumber, String textToAdd) {
 		if (this.verifyPassword()) {
-			if ((pageNumber < 0) || (pageNumber >= this.pages.length)) {
+			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
 				return;
 			}
@@ -49,7 +49,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 	@Override
 	public void replaceAllTextOnPage(int pageNumber, String textToAdd) {
 		if (this.verifyPassword()) {
-			if ((pageNumber < 0) || (pageNumber >= this.pages.length)) {
+			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
 				return;
 			}
@@ -65,7 +65,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 	@Override
 	public void deleteTextOnPage(int pageNumber) {
 		if (this.verifyPassword()) {
-			if ((pageNumber < 0) || (pageNumber >= this.pages.length)) {
+			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
 				return;
 			}
@@ -76,8 +76,8 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 	@Override
 	public void viewAllPages() {
 		if (this.verifyPassword()) {
-			System.out.println("Showing notebook pages:\n");
-			for (int index = 0; index < pages.length; index++) {
+			System.out.println("\nShowing notebook pages:");
+			for (int index = 1; index <= pages.length; index++) {
 				this.pages[index - 1].viewPage();
 			}
 		}
@@ -86,7 +86,7 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 	@Override
 	public boolean searchWord(String word) {
 		if (this.verifyPassword()) {
-			for (int index = 0; index < pages.length; index++) {
+			for (int index = 1; index <= pages.length; index++) {
 				if (this.pages[index - 1].searchWord(word)) {
 					return true;
 				}
@@ -99,8 +99,8 @@ public class NotElectronicSecuredNotepad extends SecuredNotepad implements INote
 	public void printAllPagesWithDigits() {
 		if (this.verifyPassword()) {
 			boolean hasPagesWithDigits = false;
-			System.out.println("Printing all pages that contain digits:");
-			for (int index = 0; index < pages.length; index++) {
+			System.out.println("\nPrinting all pages that contain digits:");
+			for (int index = 1; index <= pages.length; index++) {
 				if (this.pages[index - 1].containsDigits()) {
 					hasPagesWithDigits = true;
 					this.pages[index - 1].viewPage();

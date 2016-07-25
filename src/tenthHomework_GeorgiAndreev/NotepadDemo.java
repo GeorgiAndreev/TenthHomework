@@ -33,12 +33,16 @@ public class NotepadDemo {
 		System.out.println("\ncontains 'stranica': " + simpleNotepad1.searchWord("stranica"));
 		System.out.println("\ncontains 'kifla': " + simpleNotepad1.searchWord("kifla"));
 		
-		NotElectronicSecuredNotepad nesn1 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("e");
-		NotElectronicSecuredNotepad nesn2 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("erwa1");
-		NotElectronicSecuredNotepad nesn3 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Erwaw");
-		NotElectronicSecuredNotepad nesn4 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Erwa1");
-		NotElectronicSecuredNotepad nesn5 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Erwa1", 4);
+		NotElectronicSecuredNotepad nesn1 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("k");
+		NotElectronicSecuredNotepad nesn2 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("kofa1");
+		NotElectronicSecuredNotepad nesn3 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Kofaa");
+		NotElectronicSecuredNotepad nesn4 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Kofa1");
+		NotElectronicSecuredNotepad nesn5 = NotElectronicSecuredNotepad.createNotElectronicSecuredNotepad("Kofa1", 4);
 		nesn5.addTextToPage(1, "tekst");
+		nesn5.addTextToPage(2, "tekst 2");
+		nesn5.addTextToPage(3, "tekst na str. 3");
+		nesn5.addTextToPage(4, "tekst posleden");
+		nesn5.viewAllPages();
 		
 		
 	}

@@ -45,7 +45,7 @@ public class SimpleNotepad implements INotepad {
 
 	@Override
 	public void replaceAllTextOnPage(int pageNumber, String textToAdd) {
-		if ((pageNumber < 0) || (pageNumber >= this.pages.length)) {
+		if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 			System.out.println("Invalid page number.");
 			return;
 		}
@@ -59,7 +59,7 @@ public class SimpleNotepad implements INotepad {
 
 	@Override
 	public void deleteTextOnPage(int pageNumber) {
-		if ((pageNumber < 0) || (pageNumber >= this.pages.length)) {
+		if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 			System.out.println("Invalid page number.");
 			return;
 		}

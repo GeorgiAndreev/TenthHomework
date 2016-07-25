@@ -78,11 +78,13 @@ public abstract class SecuredNotepad implements INotepad {
 	boolean verifyPassword() {
 		byte tries = 0;
 		boolean guessedPassword = false;
-		Scanner sc = new Scanner(System.in);
+	
 		while ((tries < MAX_TRIES_TO_GUESS_PASSWORD) && (guessedPassword == false)) {
 			System.out.printf("\nOperation requires password. Insert password(you have %d tries):",
-					MAX_TRIES_TO_GUESS_PASSWORD);
-			String password = sc.nextLine().trim();
+					MAX_TRIES_TO_GUESS_PASSWORD);	
+			@SuppressWarnings("resource")
+			Scanner sc = new Scanner(System.in);
+			String password = sc.next().trim();
 			if (!this.password.equals(password)) {
 				tries++;
 				System.out.printf("\nInvalid password. You have %d more tries left.",
@@ -92,7 +94,6 @@ public abstract class SecuredNotepad implements INotepad {
 				guessedPassword = true;
 			}
 		}
-		sc.close();
 		if (!guessedPassword) {
 			System.out.println(" You didn't insert correct passwort and cannot perform action.");
 			return false;
@@ -105,7 +106,7 @@ public abstract class SecuredNotepad implements INotepad {
 	@Override
 	public void addTextToPage(int pageNumber, String textToAdd) {
 		if (this.verifyPassword()) {
-			if ((pageNumber < 0) || (pageNumber >= this.pages.length)) {
+			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
 				return;
 			}
@@ -120,7 +121,7 @@ public abstract class SecuredNotepad implements INotepad {
 	@Override
 	public void replaceAllTextOnPage(int pageNumber, String textToAdd) {
 		if (this.verifyPassword()) {
-			if ((pageNumber < 0) || (pageNumber >= this.pages.length)) {
+			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
 				return;
 			}
@@ -136,7 +137,7 @@ public abstract class SecuredNotepad implements INotepad {
 	@Override
 	public void deleteTextOnPage(int pageNumber) {
 		if (this.verifyPassword()) {
-			if ((pageNumber < 0) || (pageNumber >= this.pages.length)) {
+			if ((pageNumber <= 0) || (pageNumber > this.pages.length)) {
 				System.out.println("Invalid page number.");
 				return;
 			}
@@ -148,7 +149,7 @@ public abstract class SecuredNotepad implements INotepad {
 	public void viewAllPages() {
 		if (this.verifyPassword()) {
 			System.out.println("Showing notebook pages:");
-			for (int index = 0; index < pages.length; index++) {
+			for (int index = 1; index <= pages.length; index++) {
 				this.pages[index - 1].viewPage();
 			}
 		}
