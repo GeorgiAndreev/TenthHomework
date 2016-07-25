@@ -126,7 +126,7 @@ public abstract class SecuredNotepad implements INotepad{
 	@Override
 	public boolean searchWord(String word) {
 		if (this.verifyPassword()) {
-			for (int index = 0; index < pages.length; index++) {
+			for (int index = 1; index <= pages.length; index++) {
 				if (this.pages[index - 1].searchWord(word)) {
 					return true;
 				}

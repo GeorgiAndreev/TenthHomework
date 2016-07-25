@@ -34,7 +34,7 @@ public class Page {
 	}
 	
 	void deleteText() {
-		this.text = null;
+		this.text = "";
 	}
 	
 	void viewPage() {

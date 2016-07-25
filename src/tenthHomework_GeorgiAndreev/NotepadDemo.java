@@ -19,6 +19,10 @@ public class NotepadDemo {
 		simpleNotepad1.viewAllPages();
 		simpleNotepad1.addTextToPage(2, "Az sum tekst bez nomer");
 		simpleNotepad1.printAllPagesWithDigits();
+		simpleNotepad1.replaceAllTextOnPage(1, "nov tekst");
+		simpleNotepad1.viewAllPages();
+		System.out.println("\n" + simpleNotepad1.searchWord("stranica"));
+		System.out.println("\n" + simpleNotepad1.searchWord("kifla"));
 
 	}
 
